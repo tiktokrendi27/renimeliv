@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renimeliv - Download TikTok & YouTube</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #d0dfff, #f7f7ff);
+      color: #222;
+    }
+    header {
+      position: relative;
+      height: 150px;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    header video {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      z-index: -1;
+      filter: brightness(0.5);
+    }
+    header h1 {
+      font-size: 2.2rem;
+      z-index: 1;
+      margin: 0;
+      padding: 0 1rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0 2rem 0;
+      z-index: 1;
+      position: relative;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .download-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .download-section > .card {
+      width: 320px;
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
+    }
+    .download-section > .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .card h2 {
+      color: #2c2c8c;
+      margin-bottom: 1rem;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      height: 38px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #2c2c8c;
+      color: white;
+      border: none;
+      padding: 0;
+      margin: 0.5rem 0.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+      height: 40px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button:hover {
+      background-color: #1c1c6c;
+    }
+    .galeri-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+    .galeri-item {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    .galeri-item:hover {
+      transform: scale(1.05);
+    }
+    .galeri-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .galeri-item h3 {
+      margin-top: 0.8rem;
+      color: #2c2c8c;
+    }
+    footer {
+      background-color: #eee;
+      margin-top: 2rem;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    footer img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #2c2c8c;
+    }
+    footer .profile-text {
+      font-size: 1rem;
+      color: #2c2c8c;
+      font-weight: bold;
+      margin: 0;
+    }
+    footer .tiktok-text {
+      font-size: 0.9rem;
+      color: #2c2c8c;
+      font-style: italic;
+      margin: 0;
+    }
+    footer .tiktok-text a {
+      color: #2c2c8c;
+      text-decoration: none;
+      font-style: italic;
+    }
+    footer .tiktok-text a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 400px) {
+      footer {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      footer .profile-text,
+      footer .tiktok-text {
+        text-align: center;
+      }
+      .download-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .download-section > .card {
+        width: 90%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <video autoplay muted loop playsinline>
+      <source src="Kurumi0.mp4" type="video/mp4" />
+      Browser Anda tidak mendukung video background.
+    </video>
+    <h1>Renimeliv</h1>
+    <nav>
+      <a href="#tiktok">TikTok</a>
+      <a href="#youtube">YouTube</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="download-section">
+    <div class="card" id="tiktok">
+      <h2>TikTok Downloader</h2>
+      <input type="text" id="tiktokLink" placeholder="Masukkan link TikTok di sini" />
+      <button onclick="downloadTikTok()">Buka RenimeTik</button>
+      <p id="tiktokResult" style="color: red;"></p>
+    </div>
+
+    <div class="card" id="youtube">
+      <h2>YouTube Downloader</h2>
+      <input type="text" id="youtubeLink" placeholder="Masukkan link YouTube di sini" />
+      <button onclick="downloadYouTube()">Buka RenimeTube</button>
+      <p id="youtubeResult" style="color: red;"></p>
+    </div>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri Karakter Date A Live</h2>
+    <div class="galeri-grid">
+      <div class="galeri-item"><img src="Kurumi Tokisaki.png" alt="Kurumi Tokisaki" /><h3>Kurumi Tokisaki</h3></div>
+      <div class="galeri-item"><img src="Tohka Yatogami.png" alt="Tohka Yatogami" /><h3>Tohka Yatogami</h3></div>
+      <div class="galeri-item"><img src="Yoshino Himekawa.png" alt="Yoshino Himekawa" /><h3>Yoshino Himekawa</h3></div>
+      <div class="galeri-item"><img src="Kotori Itsuka.png" alt="Kotori Itsuka" /><h3>Kotori Itsuka</h3></div>
+      <div class="galeri-item"><img src="Mana Takamiya.png" alt="Mana Takamiya" /><h3>Mana Takamiya</h3></div>
+      <div class="galeri-item"><img src="Miku Izayoi.png" alt="Miku Izayoi" /><h3>Miku Izayoi</h3></div>
+      <div class="galeri-item"><img src="Kaguya Yamai.png" alt="Kaguya Yamai" /><h3>Kaguya Yamai</h3></div>
+      <div class="galeri-item"><img src="Yuzuru Yamai.png" alt="Yuzuru Yamai" /><h3>Yuzuru Yamai</h3></div>
+      <div class="galeri-item"><img src="Natsumi Kyouno.png" alt="Natsumi Kyouno" /><h3>Natsumi Kyouno</h3></div>
+      <div class="galeri-item"><img src="Nia Honjou.png" alt="Nia Honjou" /><h3>Nia Honjou</h3></div>
+      <div class="galeri-item"><img src="Mukuro Hoshimiya.png" alt="Mukuro Hoshimiya" /><h3>Mukuro Hoshimiya</h3></div>
+      <div class="galeri-item"><img src="Mio Takamiya.png" alt="Mio Takamiya" /><h3>Mio Takamiya</h3></div>
+      <div class="galeri-item"><img src="Shidou Itsuka.png" alt="Shidou Itsuka" /><h3>Shidou Itsuka</h3></div>
+    </div>
+  </section>
+
+  <section style="text-align:center; margin: 3rem 1rem;">
+    <div style="
+      background: linear-gradient(135deg, #000000, #4a4a4a);
+      color: white;
+      padding: 2rem 1rem;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+      overflow: hidden;
+    ">
+      <img src="Kurumi Tokisaki.png" alt="Kurumi Tokisaki" style="
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 140px;
+        opacity: 0.15;
+        transform: rotate(-15deg);
+        pointer-events: none;
+      " />
+      <p style="font-size: 1.3rem; font-style: italic; line-height: 1.6; margin-bottom: 1rem;">
+        Waktu tidak bisa diubah, tapi seiring berjalannya waktu manusia bisa berubah.
+      </p>
+      <p style="font-weight: bold; font-size: 1.1rem;">
+        — Kurumi Tokisaki
+      </p>
+    </div>
+  </section>
+
+  <section id="about-renimeliv" style="background:#f0f0f0; padding:20px; margin: 2rem auto; max-width: 600px; border-radius:10px; text-align:center; font-family: Arial, sans-serif;">
+    <h2>Tentang Renimeliv</h2>
+    <p>
+      <strong>Renimeliv</strong> adalah website pribadi buatan saya, yang bertujuan memudahkan kamu mengunduh video dari <strong>TikTok</strong> dan <strong>YouTube</strong> secara gratis.
+    </p>
+    <p style="color: #555; font-style: italic; font-size: 0.9rem;">
+      Namun, semua proses unduhan dilakukan melalui layanan pihak ketiga seperti <code>ssstik.io</code> dan <code>savefrom.net</code>. Jadi, saya tidak menyimpan data apapun.
+    </p>
+  </section>
+
+  <footer id="kontak">
+    <img src="Glenn.png" alt="Profil Renime" />
+    <div>
+      <p class="profile-text">Ren - Developer Website</p>
+      <p class="tiktok-text" style="margin-bottom: 0.2rem; font-weight: normal;">
+        Help support my TikTok account:
+      </p>
+      <p class="tiktok-text" style="font-style: normal;">
+        <a href="https://www.tiktok.com/@rennhitori" target="_blank" rel="noopener noreferrer">@rennhitori</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function downloadTikTok() {
+      const link = document.getElementById('tiktokLink').value.trim();
+      const result = document.getElementById('tiktokResult');
+      if (!link) {
+        result.textContent = "Masukkan link TikTok terlebih dahulu.";
+        return;
+      }
+      const url = "https://ssstik.io/en/qr?url=" + encodeURIComponent(link);
+      window.open(url, '_blank');
+      result.textContent = "";
+    }
+
+    function downloadYouTube() {
+      const link = document.getElementById('youtubeLink').value.trim();
+      const result = document.getElementById('youtubeResult');
+      if (!link) {
+        result.textContent = "Masukkan link YouTube terlebih dahulu.";
+        return;
+      }
+      const url = "https://en.savefrom.net/1-youtube-video-downloader-4/?url=" + encodeURIComponent(link);
+      window.open(url, '_blank');
+      result.textContent = "";
+    }
+  </script>
+</body>
+</html>
